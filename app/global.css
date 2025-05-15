@@ -1,3 +1,124 @@
 @import 'tailwindcss';
 @import 'fumadocs-ui/css/neutral.css';
 @import 'fumadocs-ui/css/preset.css';
+
+/* 全局代码块样式 */
+pre,
+code {
+  font-size: 1.1rem !important;
+  line-height: 1.6 !important;
+}
+
+pre {
+  padding: 1.25rem !important;
+  margin: 1rem 0 !important;
+  border-radius: 8px !important;
+  background-color: #f5f5fb !important;
+  border: 1px solid #e5e5f0 !important;
+}
+
+/* 行内代码样式 */
+:not(pre) > code {
+  padding: 0.2em 0.4em !important;
+  border-radius: 4px !important;
+  font-size: 1rem !important;
+  background-color: #eef2ff !important;
+  color: #4f46e5 !important;
+  border: 1px solid #e0e7ff !important;
+}
+
+/* 代码块中的文本颜色 */
+pre code {
+  color: #1f2937 !important;
+}
+
+/* 深色模式样式 */
+.dark pre {
+  background-color: #2f2d2d !important;
+  border: 1px solid #e5e5fb66 !important;
+}
+
+.dark pre code {
+  color: #e4e4e7 !important;
+}
+
+.dark :not(pre) > code {
+  background-color: #eef2ff33 !important;
+  color: #818cf8 !important;
+  border: 1px solid #818cf866 !important;
+}
+
+/* 代码块中的滚动条样式优化 */
+pre::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+
+pre::-webkit-scrollbar-thumb {
+  background-color: rgba(156, 163, 175, 0.5);
+  border-radius: 4px;
+}
+
+pre::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* 深色模式滚动条样式 */
+.dark pre::-webkit-scrollbar-thumb {
+  background-color: rgb(156, 163, 175);
+}
+
+.dark pre::-webkit-scrollbar-track {
+  background-color: rgba(30, 41, 59, 0.5);
+}
+
+/* 图片居中显示 */
+.fumadocs-content img {
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  margin-top: 1.5rem !important;
+  margin-bottom: 1.5rem !important;
+  max-width: 100% !important;
+  height: auto !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+}
+
+
+/* MDX 表格样式 */
+.fumadocs-content table,
+.mdx-content table,
+.prose table {
+  width: 100% !important;
+  border-collapse: separate !important;
+  margin: 1rem 0 !important;
+  border: 1px solid #aeb2b6 !important;
+}
+
+.fumadocs-content table td,
+.fumadocs-content table th,
+.mdx-content table td,
+.mdx-content table th,
+.prose table td,
+.prose table th {
+  padding: 0.75rem 1rem !important;
+  border: 1px solid #aeb2b6 !important;
+  text-align: left !important;
+}
+
+/* 深色模式 */
+.dark .fumadocs-content table,
+.dark .mdx-content table,
+.dark .prose table {
+  border-color: #e2e8f0 !important;
+}
+
+.dark .fumadocs-content table td,
+.dark .fumadocs-content table th,
+.mdx-content table td,
+.mdx-content table th,
+.dark .prose table td,
+.dark .prose table th {
+  border-color: #e2e8f0 !important;
+}

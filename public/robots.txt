@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+Disallow: /zh/
+Disallow: /en/
+
+Host: https://sealos.io
+
+Sitemap: https://sealos.io/sitemap.xml
