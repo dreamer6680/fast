@@ -1,13 +1,21 @@
 import { createMDX } from 'fumadocs-mdx/next';
 
-const withMDX = createMDX();
+const withMDX = createMDX({
+  mdxOptions: {
+    remarkPlugins: {
+      image: {
+        checkImageSize: false
+      }
+    }
+  }
+});
 
 /** @type {import('next').NextConfig} */
 const config = {
   output: 'standalone',
   reactStrictMode: true,
   images: {
-    unoptimized: false,
+    unoptimized: true,
     dangerouslyAllowSVG: true,
     domains: ['oss.laf.run', 'static.ppinfra.com'],
     remotePatterns: [

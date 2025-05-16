@@ -8,3 +8,9 @@ weight: 904
 type: redirect
 target: /docs/development/faq/
 ---
+
+import {MDXWrapper} from '@/components/docs/MDXWrapper'
+
+<MDXWrapper frontmatter={{ type: 'redirect', target: '/docs/development/faq' }}>
+  {/* 页面内容 */}
+</MDXWrapper>
