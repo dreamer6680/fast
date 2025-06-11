@@ -9,8 +9,6 @@ type: redirect
 target: /docs/development/docker/#faq
 ---
 
-import {MDXWrapper} from '@/components/docs/MDXWrapper'
+import {Redirect} from '@/components/docs/Redirect'
 
-<MDXWrapper frontmatter={{ type: 'redirect', target: '/docs/development/docker/#faq' }}>
-  {/* 页面内容 */}
-</MDXWrapper>
+<Redirect to="/docs/development/docker/#faq" />
