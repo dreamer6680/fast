@@ -27,7 +27,10 @@ code {
 
 
 /* 图片居中显示 */
-.fumadocs-content img {
+.fumadocs-content img,
+.mdx-content img,
+.prose img,
+img {
   display: block !important;
   margin-left: auto !important;
   margin-right: auto !important;
