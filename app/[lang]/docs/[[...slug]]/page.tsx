@@ -9,11 +9,13 @@ import { notFound } from "next/navigation";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import { getMDXComponents } from "@/mdx-components";
 
-export default async function Page(props: {
-  params: Promise<{ slug?: string[] }>;
+export default async function Page({
+  params,
+}: {
+  params: Promise<{ lang: string; slug?: string[] }>;
 }) {
-  const params = await props.params;
-  const page = source.getPage(params.slug);
+  const { lang, slug } = await params;
+  const page = source.getPage(slug, lang);
   if (!page) notFound();
 
   const MDXContent = page.data.body;
@@ -24,6 +26,13 @@ export default async function Page(props: {
       full={page.data.full}
       tableOfContent={{
         style: "clerk",
+      }}
+      editOnGithub={{
+        owner: 'dreamer6680',
+        repo: 'fast',
+        sha: 'main',
+        // file path, make sure it's valid
+        path: `content/docs/${page.file.path}`,
       }}
     >
       <DocsTitle>{page.data.title}</DocsTitle>
@@ -45,10 +54,10 @@ export async function generateStaticParams() {
 }
 
 export async function generateMetadata(props: {
-  params: Promise<{ slug?: string[] }>;
+  params: Promise<{ lang: string; slug?: string[] }>;
 }) {
-  const params = await props.params;
-  const page = source.getPage(params.slug);
+  const { lang, slug } = await props.params;
+  const page = source.getPage(slug, lang);
   if (!page) notFound();
 
   return {
