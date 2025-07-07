@@ -14,6 +14,14 @@ const withMDX = createMDX({
 const config = {
   output: 'standalone',
   reactStrictMode: true,
+  async rewrites() {
+    return [
+      {
+        source: '/docs/:path*.mdx',
+        destination: '/llms.mdx/:path*',
+      },
+    ];
+  },
   images: {
     unoptimized: true,
     dangerouslyAllowSVG: true,

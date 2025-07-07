@@ -10,5 +10,27 @@
     "links": "Links",
     "community": "Community",
     "resources": "Resources"
+  },
+  "ai": {
+    "chat": {
+      "trigger": "🤖 Chat with AI Assistant",
+      "triggerShort": "💬",
+      "description": "Click the button above to start chatting with the AI assistant and get FastGPT-related help",
+      "placeholder": "Ask AI something...",
+      "placeholderLoading": "AI is answering...",
+      "poweredBy": "Powered by AI Assistant",
+      "disclaimer": "AI can be inaccurate, please verify the information.",
+      "retry": "Retry",
+      "clear": "Clear Chat",
+      "abort": "Abort Answer",
+      "close": "Close Dialog",
+      "you": "you",
+      "assistant": "assistant",
+      "reference": "Reference"
+    }
+  },
+  "home": {
+    "title": "FastGPT Documentation",
+    "subtitle": "You can open {docsLink} to view documentation, or use the AI assistant below for intelligent Q&A."
   }
 } 
