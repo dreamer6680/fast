@@ -1,7 +1,6 @@
 import type { ReactNode } from 'react';
 import { HomeLayout } from 'fumadocs-ui/layouts/home';
 import { baseOptions } from '@/app/layout.config';
-import { useTranslation } from 'next-i18next';
 import { t } from '@/lib/i18n';
 
 export default async function Layout({ params, children }: { params: Promise<{ lang: string }>, children: ReactNode }) {

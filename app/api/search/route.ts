@@ -1,4 +1,7 @@
 import { source } from '@/lib/source';
 import { createFromSource } from 'fumadocs-core/search/server';
 
-export const { GET } = createFromSource(source);
+// Force English as the search language
+export const { GET } = createFromSource(source, {
+  language: 'english'
+});

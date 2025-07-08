@@ -16,7 +16,7 @@ export default async function Page({
 }) {
   const { lang, slug } = await params;
   const page = source.getPage(slug, lang);
-  if (!page) notFound();
+  if (!page || !page.data || !page.file) notFound();
 
   const MDXContent = page.data.body;
 
@@ -31,7 +31,6 @@ export default async function Page({
         owner: 'dreamer6680',
         repo: 'fast',
         sha: 'main',
-        // file path, make sure it's valid
         path: `content/docs/${page.file.path}`,
       }}
     >
@@ -40,7 +39,6 @@ export default async function Page({
       <DocsBody>
         <MDXContent
           components={getMDXComponents({
-            // this allows you to link to other pages with relative file paths
             a: createRelativeLink(source, page),
           })}
         />
@@ -58,7 +56,7 @@ export async function generateMetadata(props: {
 }) {
   const { lang, slug } = await props.params;
   const page = source.getPage(slug, lang);
-  if (!page) notFound();
+  if (!page || !page.data) notFound();
 
   return {
     title: `${page.data.title} | FastGPT`,
