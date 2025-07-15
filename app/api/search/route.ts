@@ -1,7 +1,10 @@
-import { source } from '@/lib/source';
-import { createFromSource } from 'fumadocs-core/search/server';
+import { liteClient } from 'algoliasearch/lite';
+import { useDocsSearch } from 'fumadocs-core/search/client';
 
-// Force English as the search language
-export const { GET } = createFromSource(source, {
-  language: 'english'
+const client = liteClient('id', 'key');
+
+const { search, setSearch, query } = useDocsSearch({
+  type: 'algolia',
+  indexName: 'document',
+  client,
 });

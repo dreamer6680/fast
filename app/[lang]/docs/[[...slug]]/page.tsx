@@ -8,6 +8,7 @@ import {
 import { notFound } from "next/navigation";
 import { createRelativeLink } from "fumadocs-ui/mdx";
 import { getMDXComponents } from "@/mdx-components";
+import { fetchLastModified } from "@/lib/github";
 
 export default async function Page({
   params,
@@ -19,31 +20,33 @@ export default async function Page({
   if (!page || !page.data || !page.file) notFound();
 
   const MDXContent = page.data.body;
+  const lastModified = await fetchLastModified(`content/docs/${page.file.path}`);
 
   return (
-    <DocsPage
-      toc={page.data.toc}
-      full={page.data.full}
-      tableOfContent={{
-        style: "clerk",
-      }}
-      editOnGithub={{
-        owner: 'dreamer6680',
-        repo: 'fast',
-        sha: 'main',
-        path: `content/docs/${page.file.path}`,
-      }}
-    >
-      <DocsTitle>{page.data.title}</DocsTitle>
-      <DocsDescription>{page.data.description}</DocsDescription>
-      <DocsBody>
-        <MDXContent
-          components={getMDXComponents({
-            a: createRelativeLink(source, page),
-          })}
-        />
-      </DocsBody>
-    </DocsPage>
+      <DocsPage
+        toc={page.data.toc}
+        full={page.data.full}
+        tableOfContent={{
+          style: "clerk",
+        }}
+        editOnGithub={{
+          owner: "labring",
+          repo: "FastGPT",
+          sha: "main",
+          path: `document/content/docs/${page.file.path}`,
+        }}
+        lastUpdate={lastModified ? new Date(lastModified) : undefined}
+      >
+        <DocsTitle>{page.data.title}</DocsTitle>
+        <DocsDescription>{page.data.description}</DocsDescription>
+        <DocsBody>
+          <MDXContent
+            components={getMDXComponents({
+              a: createRelativeLink(source, page),
+            })}
+          />
+        </DocsBody>
+      </DocsPage>
   );
 }
 
