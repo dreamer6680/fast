@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@algolia/client-search':
-        specifier: ^5.32.0
-        version: 5.32.0
       '@orama/orama':
         specifier: ^3.1.11
         version: 3.1.11

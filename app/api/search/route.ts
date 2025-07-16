@@ -1,10 +1,7 @@
-import { liteClient } from 'algoliasearch/lite';
-import { useDocsSearch } from 'fumadocs-core/search/client';
+import { source } from '@/lib/source';
+import { createFromSource } from 'fumadocs-core/search/server';
 
-const client = liteClient('id', 'key');
-
-const { search, setSearch, query } = useDocsSearch({
-  type: 'algolia',
-  indexName: 'document',
-  client,
+export const { GET } = createFromSource(source, {
+  // https://docs.orama.com/open-source/supported-languages
+  language: 'english',
 });

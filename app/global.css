@@ -1,12 +1,6 @@
 @import 'tailwindcss';
-@import 'fumadocs-ui/css/vitepress.css';
 @import 'fumadocs-ui/css/preset.css';
 
-
-:root {
-  --fd-layout-width: 1400px;
-  --fd-nav-height: 100000px !important;
-}
 /* 在文件开头添加这些基础变量 */
 :root {
   /* 基础颜色 */
@@ -19,6 +13,7 @@
   --yellow-50-hsl: 55, 92%, 95%;
   --yellow-500-hsl: 45, 93%, 47%;
   --blue-500-hsl: 217, 91%, 60%;
+  --fd-layout-width: 1400px;
   
   /* 文本颜色 */
   --text-default: #374151;
@@ -48,7 +43,7 @@
   --nav-tabs-border-width: none;
   --nav-tabs-link-active-bg: none;
   --nav-tabs-link-active-color: var(--text-default);
-  --nav-tabs-border-color: var(--gray-100);
+  --nav-tabs-border-color: var(--gray-400);
 }
 
 [data-dark-mode] {
@@ -151,4 +146,115 @@ img {
 .tab-content {
   margin-bottom: 0.8rem;
   padding: 1rem 0;
+}
+
+#nd-subnav > div:nth-of-type(1) button:nth-of-type(1) {
+  box-shadow: 1px 1px 1px 1px #a9a0a0 !important;
+  background-color: none !important;
+  &:hover {
+    background-color: transparent !important;
+    cursor: pointer; 
+  }
+}
+#nd-subnav > div:nth-of-type(1) {
+  border-bottom: 0.2px solid var(--gray-200) !important;
+}
+#nd-subnav > div:nth-of-type(2) {
+  border-bottom: 0.5px solid var(--gray-200) !important;
+  height: 100%;
+}
+
+#nd-subnav > div:nth-of-type(2) a {
+  text-decoration: none;
+  color: inherit;
+  transition: color 0.2s ease;
+  background-color: transparent !important;
+  /* 先清除默认下划线 */
+  &:hover {
+    text-decoration: underline;
+    text-decoration-color: gray;
+    text-decoration-thickness: 2px;  /* 下划线粗细 */
+    text-underline-offset: 14px;      /* 下划线与文字距离 */
+  }
+  &:active {
+    text-decoration: underline;
+    text-decoration-color: #2563EB;
+    text-decoration-thickness: 2px;  /* 下划线粗细 */
+    text-underline-offset: 14px;      /* 下划线与文字距离 */
+    background-color: transparent !important;
+  }
+}
+
+@theme {
+  --color-fd-muted: hsl(0, 0%, 96.1%);
+  --color-fd-popover: hsl(0, 0%, 100%);
+  --color-fd-popover-foreground: hsl(0, 0%, 15.1%);
+  --color-fd-card-foreground: hsl(0, 0%, 3.9%);
+  --color-fd-border: hsl(0, 0%, 89.8%);
+  --color-fd-primary-foreground: hsl(0, 0%, 98%);
+  --color-fd-secondary-foreground: hsl(0, 0%, 9%);
+  --color-fd-accent: hsl(0, 0%, 94.1%);
+  --color-fd-ring: hsl(0, 0%, 63.9%);
+
+  --color-fd-background: hsl(0, 0%, 100%);
+  --color-fd-card: hsl(0, 0%, 100%);
+  --color-fd-foreground: hsl(240, 6%, 25%);
+  --color-fd-muted-foreground: hsl(240, 6%, 50%);
+  --color-fd-secondary: hsl(240, 6%, 97%);
+  --color-fd-accent-foreground: hsl(240, 6%, 25%);
+  --color-fd-primary: hsl(226, 55%, 45%);
+}
+
+.dark {
+  --color-fd-ring: hsl(234, 100%, 83%);
+  --color-fd-primary: hsl(234, 100%, 83%);
+  --color-fd-secondary-foreground: hsl(60, 100%, 98%);
+  --color-fd-card-foreground: hsl(60, 100%, 98%);
+  --color-fd-background: hsl(240, 7%, 11%);
+  --color-fd-foreground: hsl(60, 100%, 98%);
+  --color-fd-popover: hsl(240, 7%, 11%);
+  --color-fd-popover-foreground: hsl(60, 100%, 98%);
+  --color-fd-primary-foreground: hsl(240, 7%, 11%);
+  --color-fd-card: hsl(240, 7%, 11%);
+  --color-fd-muted: hsl(0, 0%, 13%);
+  --color-fd-border: hsl(240, 4%, 19%);
+  --color-fd-accent: hsl(0, 0%, 15%);
+  --color-fd-secondary: hsl(240, 4%, 9%);
+  --color-fd-accent-foreground: hsl(0, 0%, 100%);
+  --color-fd-muted-foreground: hsl(240, 4%, 65%);
+}
+
+.prose {
+  --tw-prose-body: color-mix(
+    in oklab,
+    var(--color-fd-foreground) 85%,
+    --color-fd-background: hsl(0, 0%, 100%);
+  );
+  --tw-prose-headings: color-mix(
+    in oklab,
+    var(--color-fd-foreground) 85%,
+    --color-fd-background: hsl(0, 0%, 100%);
+  );
+  --tw-prose-links: var(--color-fd-primary);
+  --tw-prose-code: var(--color-fd-primary);
+}
+
+.prose :where(code):not(:where([class~='not-prose'], [class~='not-prose'] *)) {
+  border: none;
+  background-color: color-mix(
+    in oklab,
+    var(--color-fd-primary) 10%,
+  );
+}
+
+#nd-sidebar {
+  border-color: transparent;
+}
+
+.dark #nd-sidebar {
+  background-color: hsl(240, 4%, 9%);
+}
+
+button[data-search-full] {
+  background-color: var(--color-fd-background);
 }
