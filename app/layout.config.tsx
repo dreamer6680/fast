@@ -12,7 +12,7 @@ export const baseOptions = (locale: string): BaseLayoutProps => {
   return {
     themeSwitch: {
       enabled: true,
-      mode: 'light-dark',
+      mode: 'light-dark'
     },
     nav: {
       title: (
@@ -24,8 +24,11 @@ export const baseOptions = (locale: string): BaseLayoutProps => {
         </div>
       )
     },
-    i18n,
-    githubUrl: "https://github.com/labring/FastGPT/tree/main/document",
+    i18n:{
+      languages:['zh-CN','en'],
+      defaultLanguage:'zh-CN',
+      hideLocale:'always'
+    },
     searchToggle: {
       enabled: true,
     }

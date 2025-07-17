@@ -75,26 +75,6 @@ code {
 
 /* 代码块中的滚动条样式优化 */
 
-
-
-
-/* 图片居中显示 */
-.fumadocs-content img,
-.mdx-content img,
-.prose img,
-img {
-  display: block !important;
-  margin-left: auto !important;
-  margin-right: auto !important;
-  margin-top: 1.5rem !important;
-  margin-bottom: 1.5rem !important;
-  max-width: 100% !important;
-  height: auto !important;
-  border-radius: 8px !important;
-  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
-}
-
-
 /* MDX 表格样式 */
 .fumadocs-content table,
 .mdx-content table,
@@ -174,6 +154,11 @@ div[data-state="open"].fixed.inset-0.z-50 {
   border-bottom: 0.1px solid #61646fc6 !important;
 }
 
+div[data-rmiz-modal-content] {
+  background-color: #999 !important;
+}
+
+
 #nd-subnav > div:nth-of-type(2) a {
   text-decoration: none;
   color: #485264;
@@ -223,7 +208,7 @@ div[data-state="open"].fixed.inset-0.z-50 {
 }
 
 .dark {
-  --color-fd-background: hsl(220, 60%, 8%);
+  --color-fd-background: #060c1a;
   --color-fd-foreground: hsl(220, 60%, 94.5%);
   --color-fd-muted: hsl(220, 50%, 10%);
   --color-fd-muted-foreground: hsl(220, 30%, 65%);
@@ -232,7 +217,7 @@ div[data-state="open"].fixed.inset-0.z-50 {
   --color-fd-card: hsla(220, 56%, 15%, 0.4);
   --color-fd-card-foreground: hsl(220, 60%, 94.5%);
   --color-fd-border: hsla(220, 50%, 50%, 0.2);
-  --color-fd-primary: hsl(205, 100%, 85%); /* 文本高亮色 */
+  --color-fd-primary: #3370FF; /* 文本高亮色 */
   --color-fd-primary-foreground: hsl(0, 0%, 9%);
   --color-fd-secondary: hsl(220, 50%, 20%);
   --color-fd-secondary-foreground: hsl(220, 80%, 90%);
